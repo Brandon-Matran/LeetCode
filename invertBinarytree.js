@@ -4,8 +4,11 @@ function TreeNode(val, left, right) {
          this.right = (right===undefined ? null : right)
      }
 
-
+//recursion
 var invertTree = function(root) {
+    if (root === null) {
+        return root
+    }
 
     let temp = root.left
     root.left = root.right
@@ -20,3 +23,22 @@ var invertTree = function(root) {
 
 
 console.log(invertTree)
+
+
+// bfs
+var invertTree = function(root) {
+
+    let queue = [root]
+
+    while (queue.length) {
+        let curr = queue.shift()
+        if (curr !== null) {
+            [curr.left, curr.right] = [curr.right, curr.left]
+            queue.push(curr.left, curr.right)
+
+        }
+        console.log(queue)
+
+    }
+    return root
+}

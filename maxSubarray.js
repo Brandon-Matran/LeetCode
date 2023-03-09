@@ -5,8 +5,6 @@ const maxSubArray = nums => {
     for (let i = 1; i < nums.length; i += 1) {
         current += nums[i];
         max = Math.max(max, current);
-
-        console.log("MAX", max)
         current = Math.max(current, 0);
     }
 

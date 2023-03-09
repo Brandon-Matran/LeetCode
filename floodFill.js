@@ -1,7 +1,7 @@
 var floodFill = function (image, sr, sc, color) {
   let start = image[sr][sc]; //a variable for start position of colored pixel
   if (start === color) {
-    //base case
+    //edge case
     return image;
   }
   let queue = [[sr, sc]]; //the root

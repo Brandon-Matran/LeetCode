@@ -12,7 +12,6 @@ var longestPalindrome = function (s) {
     }
 }
 
-console.log(set.size)
 return counter + (set.size > 0 ? 1 : 0)
 
 }

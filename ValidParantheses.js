@@ -19,8 +19,6 @@ var isValid = function (s) {
       }
     } else {
       stack.push(c);
-      console.log(stack)
-
     }
   }
 

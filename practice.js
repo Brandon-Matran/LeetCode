@@ -1,19 +1,15 @@
-var majorityElement = function (nums) {
-  let d = {};
-  for (let num of nums) {
-    if (!(num in d)) {
-      d[num] = 0;
-    }
-    d[num] += 1;
+var maxSubArray = function(nums) {
+  let max = nums[0]
+  let current = Math.max(max, 0)
+
+  for (let i=1; i < nums.length; i++) {
+    current += nums[i]
+    max = Math.max(max, current)
+    current = Math.max(current, 0)
   }
-  console.log(d);
+  return max
 
-  for (let key of Object.keys(d)) {
-    if (d[key] > (nums.length)/2) {
-        return key
-    }
-}
-}
+};
 
-nums = [6,6,6,7,7]
-console.log(majorityElement(nums));
+nums = [-2,1,-3,4,-1,2,1,-5,4]
+console.log(maxSubArray(nums))

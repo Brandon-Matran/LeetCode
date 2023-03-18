@@ -18,8 +18,8 @@ var levelOrder = function (root) {
         //push the val of the current node into the array
         result[level].push(root.val);
         //continue to traverse the tree
-        traversal(root.left);
-        traversal(root.right);
+        traversal(root.left, level + 1);
+        traversal(root.right, level  + 1);
       }
     }
   }

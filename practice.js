@@ -1,15 +1,26 @@
-var maxSubArray = function(nums) {
-  let max = nums[0]
-  let current = Math.max(max, 0)
+var characterReplacement = function (s, k) {
+  let visited = {};
+  let maxCharCount = 0;
+  //initialize k
+  let left = 0;
+  let right = 0;
+  //iterate through all the characters of s
+  while (right < s.length) {
+    const char = s[right];
+    visited[char] = visited[char] ? visited[char] + 1 : 1;
+    if (visited[char] > maxCharCount) {
+      maxCharCount = visited[char];
+    }
+    if (right - left + 1 - maxCharCount > k) {
+      visited[s[left]] -= 1;
+      left++;
+    }
 
-  for (let i=1; i < nums.length; i++) {
-    current += nums[i]
-    max = Math.max(max, current)
-    current = Math.max(current, 0)
+    right++;
   }
-  return max
-
+  return right - left;
 };
 
-nums = [-2,1,-3,4,-1,2,1,-5,4]
-console.log(maxSubArray(nums))
+s = "AABABBA";
+k = 2;
+console.log(characterReplacement(s, k));

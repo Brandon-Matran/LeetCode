@@ -1,21 +1,21 @@
 
-def topKFrequent(nums, k):
-    d = {}
-    result = []
-    for n in nums:
-        if n not in d:
-            d[n] = 1
-        else:
-            d[n] += 1
-    print(d)
-    sorted_d = sorted(d.items(), key=lambda x: x[1], reverse=True)
-    for items in sorted_d[0:k]:
-        result.append(items[0])
-    return result
 
+def productExceptSelf(nums):
+    res = []
+    left_side = [0] * len(nums)
+    right_side = [0] * len(nums)
 
+    left_side[0] = 1
+    right_side[-1] = 1
+    for i in range(1, len(nums)):
+        left_side[i] = left_side[i - 1] * nums[i - 1]
+        print("LEFT", left_side)
+        right_side[len(nums) - i - 1] = right_side[len(nums)- i] * nums[len(nums) - i]
+        
 
+    for i in range(len(nums)):
+        res.append(left_side[i] * right_side[i])
+    return res
 
-nums = [4,1,-1,2,-1,2,3]
-k = 2
-print(topKFrequent(nums, k))
+nums = [1,2,3,4]
+print(productExceptSelf(nums))

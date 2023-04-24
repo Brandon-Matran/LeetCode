@@ -13,3 +13,6 @@ class Solution:
 nums = [1, 2, 3, 4, 100, 200]
 solution = Solution()
 print(solution.longestConsecutive(nums))
+
+
+#previous commit

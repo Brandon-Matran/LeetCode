@@ -1,39 +1,3 @@
-# class Solution:
-#     def isValidSudoku(self, board: list[list[str]]) -> bool:
-#         """
-#         Need to scan each row and compare that to the corresponding column of the board to determine validity.
-#         Check to see if each element in the row is a "." or a number.
-#         """
-#         s = set()
-#         for i in range(9): # iterate rhgouh each row
-#             for j in range(9): #iterate throug each column
-#                 if board[i][j] != ".": #check if the value at the cell is a "." or a number
-#                     c = board[i][j] #attaches all the numbers to the c variable
-
-#                     key = f'{c} in row {i}' #map each value in the cell to its row
-
-#                     if key in s:
-#                         return False
-#                     else:
-#                         s.add(key)
-
-#                     key = f'{c} in column {j}' #map each value in the cell to its column
-
-#                     if key in s:
-#                         return False
-#                     else:
-#                         s.add(key)
-
-
-#                     boxIndex = (i // 3) * 3 + (j // 3) #refers to the 3x3 box within the 9x9 grid, we need to print each number within the box
-#                     key = f'{c} in box {boxIndex}'
-#                     print(key)
-#                     if key in s:
-#                         return False
-#                     else:
-#                         s.add(key)
-#         return True
-
 class Solution:
     def isValidSudoku(self, board: list[list[str]]) -> bool:
         s = set()

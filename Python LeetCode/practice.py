@@ -1,21 +1,14 @@
-# def tide_difference(measurements):
-
-#     peak = max(measurements)
-#     low = min(measurements)
-#     diff = peak - low
-#     l = measurements.index(low)
-#     r = measurements.index(peak)
-
-#     if l > r:
-#         return None
-
-
-#     for i in range(l, r):
-#         if measurements[i] < measurements[i+1]:
-#             continue
-#         else:
-#             return None
-#     return diff
+def mergeOverlappingIntervals(intervals):
+    new_intervals = sorted(intervals, key=lambda x: x[0])
+    currentInterval = new_intervals[0]
+    res = [currentInterval]
+    for nextInterval in new_intervals:
+        if currentInterval[1] > nextInterval[0]:
+            currentInterval[1] = max(currentInterval[1], nextInterval[1])
+        else:
+            currentInterval = nextInterval
+            res.append(currentInterval)
+    return res
 
 
 
@@ -24,14 +17,5 @@
 
 
 
-
-
-
-# measurements = [7, 6, 5, 4, 3, 2, 1]
-
-# print(tide_difference(measurements))
-
-
-string = "HELLO"
-
-print(string[::-1])
+intervals = [[1,2], [3,5], [4,7], [6,8], [9,10]]
+print(mergeOverlappingIntervals(intervals))

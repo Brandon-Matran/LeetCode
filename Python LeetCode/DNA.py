@@ -1,5 +1,6 @@
 def rna_transcription(dna_strand):
     promoter = "TATAAT"
+    length = 6
     for i in range(len(dna_strand)):
         if dna_strand[i : i + 6] == promoter:
             transcription_unit_start = i + 10
@@ -8,20 +9,26 @@ def rna_transcription(dna_strand):
     print("REVERSE", reverse_dna)
     dna = dna_strand[transcription_unit_start + 1 :]
     print("DNA", dna)
-    t_match = ""
+    dna_match = ""
     for d in dna:
         if d in dna_dict:
-            t_match += dna_dict[d]
-    res = []
+            dna_match += dna_dict[d]
+    print("DNA MATCH", dna_match)
+    seq1 = []
+    seq2 = []
 
-    print("______________________", t_match)
+    for i in range(len(reverse_dna) - length):
+        seq1.append(reverse_dna[i : i + length])
 
-    for i in range(len(reverse_dna)):
-        for c in t_match:
-            if reverse_dna[i] == c:
-                res.append(i)
-            else:
-                
+        seq2.append(dna_match[i : i + length])
+
+    for seq in seq1:
+        if seq in seq2:
+            print(seq)
+            break
+
+
+
 
 
 
